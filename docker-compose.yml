@@ -19,4 +19,5 @@ services:
     depends_on:
       - db
     environment: # Окружение для приложения, например, для подключения к БД
-      DATABASE_URL: mysql://root:your_password@db:3306/dbdjango
+
+      DATABASE_URL: mysql://root:1234@db:3306/dbdjango
