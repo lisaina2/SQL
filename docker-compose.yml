@@ -1,0 +1,22 @@
+version: "3.9"
+
+services:
+  db:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: "1234" # Обязательно замените!
+      MYSQL_DATABASE: dbdjango # Замените на имя базы данных
+      MYSQL_USER: root
+      MYSQL_PASSWORD: "1234" # Обязательно замените!
+    ports:
+      - "3306:3306" # Отображение порта MySQL на хост
+
+  app: # Определение сервиса вашего приложения
+    build: . # Путь к Dockerfile вашего приложения
+    ports:
+      - "8000:8000" # Отображение порта вашего приложения
+    depends_on:
+      - db
+    environment: # Окружение для приложения, например, для подключения к БД
+      DATABASE_URL: mysql://root:your_password@db:3306/dbdjango
