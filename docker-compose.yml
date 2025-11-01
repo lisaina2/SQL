@@ -1,4 +1,4 @@
-version: "3.9"
+version: "3.14"
 
 services:
   db:
@@ -21,3 +21,4 @@ services:
     environment: # Окружение для приложения, например, для подключения к БД
 
       DATABASE_URL: mysql://root:1234@db:3306/dbdjango
+
